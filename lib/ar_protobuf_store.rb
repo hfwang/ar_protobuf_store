@@ -3,61 +3,52 @@ require 'ar_protobuf_store/version'
 require 'ar_protobuf_store/railtie.rb' if defined?(Rails)
 
 module ArProtobufStore
-  class NilFriendlyPb
-    def initialize(pb_class, opts = nil)
-      @klass = pb_class
-      @opts = opts
-      @opts ||=  { :default => Proc.new { pb_class.new() } }
-    end
+  autoload(:CodekitchenProtobufParser,
+           "ar_protobuf_store/codekitchen_protobuf_parser")
+  autoload(:ProtobufParser,
+           "ar_protobuf_store/protobuf_parser")
 
-    def load(str)
-      if str.nil?
-        return default_value
-      else
-        return @klass.new.tap { |o| o.parse(str) }
-      end
-    rescue Exception
-      Rails.logger.error("Failed to deserialize: #{$!}")
-      return default_value
-    end
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
 
-    def dump(str)
-      str.serialize_to_string
-    end
-
-    private
-    def default_value
-      if @opts[:default].respond_to? :call
-        @opts[:default].call
-      elsif @opts[:default].duplicable?
-        @opts[:default].dup
-      else
-        @opts[:default]
-      end
+  def self.find_parser!(pb_class)
+    if defined?(ProtocolBuffers) && ::ProtocolBuffers::Message > pb_class
+      return ArProtobufStore::CodekitchenProtobufParser.new(pb_class)
+    elsif defined?(Protobuf) && ::Protobuf::Message > pb_class
+      return ArProtobufStore::ProtobufParser.new(pb_class)
+    else
+      raise "Could not identify protocol buffer library for #{pb_class}"
     end
   end
 
-  extend ActiveSupport::Concern
-
   module ClassMethods
     def protobuf_store(store_attribute, pb_class, options={})
-      serialize(store_attribute, NilFriendlyPb.new(pb_class))
-      if options.has_key? :accessors
-        store_accessor(store_attribute, options[:accessors])
-      else
-        store_accessor(store_attribute, pb_class.fields.values.map(&:name))
-      end
+      parser = ArProtobufStore.find_parser!(pb_class)
+      serialize(store_attribute, parser)
+      protobuf_store_accessor(store_attribute, parser.extract_fields(options[:accessors]))
     end
 
     def protobuf_store_accessor(store_attribute, *keys)
       Array(keys).flatten.each do |key|
+        name = key[:name]
+        coercer = case key[:type]
+                  when :int
+                    ".to_i"
+                  when :float
+                    ".to_f"
+                  when :string
+                    ".to_s"
+                  else
+                    ""
+                  end
         class_eval <<-"END_EVAL", __FILE__, __LINE__
-          def #{key}=(value)
+          def #{name}=(value)
             self.#{store_attribute}_will_change!
-            self.#{store_attribute}.#{key} = value
+            self.#{store_attribute}.#{name} = value#{coercer}
           end
-          def #{key}
-            self.#{store_attribute}.#{key}
+          def #{name}
+            self.#{store_attribute}.#{name}
           end
         END_EVAL
       end
