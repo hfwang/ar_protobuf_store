@@ -12,3 +12,10 @@ RAILS_VERSIONS.each do |rails|
     end
   end
 end
+
+# Special case, want one test case for 1.8.7, so we want protobuf = 3.0.0, which
+# is the last version that uses rails < 3.2
+appraise "rails3.0_protobuf" do
+  gem "rails", "~> 3.0"
+  gem "protobuf", "= 3.0.0"
+end
