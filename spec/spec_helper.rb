@@ -3,6 +3,9 @@ require "ar_protobuf_store"
 
 require "active_record"
 
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
 ActiveRecord::Schema.verbose = false
 

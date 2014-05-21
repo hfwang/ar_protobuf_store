@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   # Install this by default to make development easier
   gem.add_development_dependency "ruby-protocol-buffers", "~> 1.5"
 
+  gem.add_development_dependency "codeclimate-test-reporter"
   gem.add_development_dependency "pry", "~> 0.9"
   gem.add_development_dependency "sqlite3", "~> 1.3"
   gem.add_development_dependency "appraisal", "~> 1.0.0"

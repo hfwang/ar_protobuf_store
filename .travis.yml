@@ -24,3 +24,6 @@ matrix:
       gemfile: gemfiles/rails4.1_protobuf.gemfile
     - rvm: 1.8.7
       gemfile: gemfiles/rails4.1_ruby_protobuf.gemfile
+addons:
+  code_climate:
+    repo_token: 6bdbd657ebc3097c1ca86672a45b6408a457a5d80cea234937f4d4adfbf004bd
