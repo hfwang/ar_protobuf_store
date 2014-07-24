@@ -40,6 +40,8 @@ module ArProtobufStore
         t = case field
             when ProtocolBuffers::Field::StringField
               :string
+            when ProtocolBuffers::Field::BoolField
+              :bool
             when ProtocolBuffers::Field::VarintField
               :int
             when ProtocolBuffers::Field::FloatField, ProtocolBuffers::Field::DoubleField

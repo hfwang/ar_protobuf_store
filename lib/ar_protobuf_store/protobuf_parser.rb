@@ -41,7 +41,9 @@ module ArProtobufStore
         t = case field
             when Protobuf::Field::StringField
               :string
-            when Protobuf::Field::VarintField
+            when Protobuf::Field::BoolField
+              :bool
+            when Protobuf::Field::IntegerField, Protobuf::Field::Uint32Field, Protobuf::Field::Uint64Field
               :int
             when Protobuf::Field::FloatField
               :float

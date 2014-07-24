@@ -34,18 +34,20 @@ module ArProtobufStore
         name = key[:name]
         coercer = case key[:type]
                   when :int
-                    ".to_i"
+                    "%s.to_i"
                   when :float
-                    ".to_f"
+                    "%s.to_f"
                   when :string
-                    ".to_s"
+                    "%s.to_s"
+                  when :bool
+                    "!!%s"
                   else
-                    ""
+                    "%s"
                   end
         class_eval <<-"END_EVAL", __FILE__, __LINE__
           def #{name}=(value)
             self.#{store_attribute}_will_change!
-            self.#{store_attribute}.#{name} = value#{coercer}
+            self.#{store_attribute}.#{name} = #{coercer % 'value'}
           end
           def #{name}
             self.#{store_attribute}.#{name}
