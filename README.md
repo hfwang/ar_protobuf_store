@@ -45,12 +45,18 @@ class FooExtras < ::Protobuf::Message
   # Auto-generated protobuf compiler output here!
 end
 
+# FooModel would have a schema like:
+# create_table :foo_model do |t|
+#   # Recommend setting a limit that's biggish so it will be stored as a binary
+#   # blob by MySQL instead of a binary varchar.
+#   t.binary :extras, :limit => 1.megabyte
+# end
 class FooModel < ActiveRecord::Base
   # The old, YAML-based version would look like:
   # store :extras, :accessors => :foo, :bar
 
   # The new, protobuf-based version would look like:
-  marshal_store :extras, FooExtras
+  protobuf_store :extras, FooExtras
 end
 ```
 
