@@ -1,3 +1,7 @@
+### 0.2.3 / 2015-11-21
+
+Update gemspec, gem supports Rails 4.2
+
 ### 0.2.1 / 2014-05-20
 
 Tweak detection of field types so booleans are detected.
