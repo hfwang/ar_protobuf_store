@@ -1,3 +1,7 @@
+### 0.2.4 / 2015-11-21
+
+Pass options through correctly, so coder can respect defaults.
+
 ### 0.2.3 / 2015-11-21
 
 Update gemspec, gem supports Rails 4.2

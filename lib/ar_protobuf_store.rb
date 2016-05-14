@@ -12,11 +12,11 @@ module ArProtobufStore
     base.extend(ClassMethods)
   end
 
-  def self.find_parser!(pb_class)
+  def self.find_parser!(pb_class, options={})
     if defined?(ProtocolBuffers) && ::ProtocolBuffers::Message > pb_class
-      return ArProtobufStore::CodekitchenProtobufParser.new(pb_class)
+      return ArProtobufStore::CodekitchenProtobufParser.new(pb_class, options)
     elsif defined?(Protobuf) && ::Protobuf::Message > pb_class
-      return ArProtobufStore::ProtobufParser.new(pb_class)
+      return ArProtobufStore::ProtobufParser.new(pb_class, options)
     else
       raise "Could not identify protocol buffer library for #{pb_class}"
     end
@@ -24,7 +24,7 @@ module ArProtobufStore
 
   module ClassMethods
     def protobuf_store(store_attribute, pb_class, options={})
-      parser = ArProtobufStore.find_parser!(pb_class)
+      parser = ArProtobufStore.find_parser!(pb_class, options)
       serialize(store_attribute, parser)
       protobuf_store_accessor(store_attribute, parser.extract_fields(options[:accessors]))
     end
