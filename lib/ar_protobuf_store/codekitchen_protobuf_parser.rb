@@ -24,6 +24,14 @@ module ArProtobufStore
 
     def dump(str)
       str.serialize_to_string
+    rescue Exception
+      if defined?(Rails)
+        Rails.logger.error("Failed to serialize: #{$!}")
+      else
+        puts "Failed to serialize: #{$!}"
+      end
+
+      return nil
     end
 
     def extract_fields(accessors = nil)
