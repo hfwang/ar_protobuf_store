@@ -23,7 +23,8 @@ module ArProtobufStore
   end
 
   module ClassMethods
-    def protobuf_store(store_attribute, pb_class, options={})
+    def protobuf_store(store_attribute, pb_class, options=nil)
+      options ||= {}
       parser = ArProtobufStore.find_parser!(pb_class, options)
       serialize(store_attribute, parser)
       protobuf_store_accessor(store_attribute, parser.extract_fields(options[:accessors]))

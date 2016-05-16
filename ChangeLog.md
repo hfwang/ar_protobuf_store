@@ -1,9 +1,7 @@
 ### 1.0.0 / 2015-05-15
-Don't allow coder's dump method to fail. Instead, return nil.
 
-### 0.2.4 / 2015-05-13
-
-Pass options through correctly, so coder can respect defaults.
+* Don't allow coder's dump method to fail. Instead, return nil.
+* Pass options through correctly, so coder can respect defaults.
 
 ### 0.2.3 / 2015-11-21
 

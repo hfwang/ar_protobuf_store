@@ -3,7 +3,9 @@ module ArProtobufStore
     def initialize(pb_class, opts = nil)
       @klass = pb_class
       @opts = opts || {}
-      @opts[:default] ||= Proc.new { pb_class.new() }
+      @opts = {
+        :default => Proc.new { pb_class.new() }
+      }.merge(opts || {})
     end
 
     def load(str)
