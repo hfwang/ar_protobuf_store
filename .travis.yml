@@ -1,28 +1,17 @@
 language: ruby
 rvm:
-  - 1.9.3
   - 2.0.0
   - 2.1.0
   - 2.1.1
 gemfile:
   - gemfiles/rails3.2_protobuf.gemfile
   - gemfiles/rails3.2_ruby_protobuf.gemfile
-  - gemfiles/rails4.0_protobuf.gemfile
-  - gemfiles/rails4.0_ruby_protobuf.gemfile
-  - gemfiles/rails4.1_protobuf.gemfile
-  - gemfiles/rails4.1_ruby_protobuf.gemfile
-matrix:
-  exclude:
-    - rvm: 1.8.7
-      gemfile: gemfiles/rails3.2_protobuf.gemfile
-    - rvm: 1.8.7
-      gemfile: gemfiles/rails4.0_protobuf.gemfile
-    - rvm: 1.8.7
-      gemfile: gemfiles/rails4.0_ruby_protobuf.gemfile
-    - rvm: 1.8.7
-      gemfile: gemfiles/rails4.1_protobuf.gemfile
-    - rvm: 1.8.7
-      gemfile: gemfiles/rails4.1_ruby_protobuf.gemfile
+  - gemfiles/rails4.0.0_protobuf.gemfile
+  - gemfiles/rails4.0.0_ruby_protobuf.gemfile
+  - gemfiles/rails4.1.0_protobuf.gemfile
+  - gemfiles/rails4.1.0_ruby_protobuf.gemfile
+  - gemfiles/rails4.2.0_protobuf.gemfile
+  - gemfiles/rails4.2.0_ruby_protobuf.gemfile
 addons:
   code_climate:
     repo_token: 6bdbd657ebc3097c1ca86672a45b6408a457a5d80cea234937f4d4adfbf004bd
