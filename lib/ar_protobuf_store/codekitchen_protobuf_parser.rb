@@ -2,8 +2,8 @@ module ArProtobufStore
   class CodekitchenProtobufParser
     def initialize(pb_class, opts = nil)
       @klass = pb_class
-      @opts = opts
-      @opts ||=  { :default => Proc.new { pb_class.new() } }
+      @opts = opts || {}
+      @opts[:default] ||= Proc.new { pb_class.new() }
     end
 
     def load(str)
