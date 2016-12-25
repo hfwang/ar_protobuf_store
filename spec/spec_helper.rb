@@ -18,7 +18,14 @@ def setup_db(&block)
 end
 
 def teardown_db
-  ActiveRecord::Base.connection.tables.each do |table|
+  # ActiveRecord::Base.connection.tables is deprecated in Rails 5.
+  tables = if ActiveRecord::Base.connection.respond_to?(:data_sources)
+             ActiveRecord::Base.connection.data_sources
+           else
+             ActiveRecord::Base.connection.tables
+           end
+
+  tables.each do |table|
     ActiveRecord::Base.connection.drop_table(table)
   end
 end
