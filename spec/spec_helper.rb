@@ -4,8 +4,8 @@ require "ar_protobuf_store"
 require "active_record"
 
 if RUBY_VERSION > "1.8.7"
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
+  require 'simplecov'
+  SimpleCov.start
 end
 
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
