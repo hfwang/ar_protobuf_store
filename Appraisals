@@ -1,4 +1,4 @@
-RAILS_VERSIONS = ["3.2", "4.0.0", "4.1.0", "4.2.0", "4.2.6"]
+RAILS_VERSIONS = ["3.2", "4.0.0", "4.1.0", "4.2.0", "4.2.6", "5.0.1"]
 PROTOBUF_SPECS = [
   ["protobuf", "~> 3.0"],
   ["ruby_protobuf", "~> 0.4"]
