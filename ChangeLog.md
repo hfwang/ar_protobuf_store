@@ -1,4 +1,9 @@
-### 1.0.0 / 2015-05-15
+### 1.0.1 / 2016-05-15
+
+* Declare support for Rails 5.
+* Upgrade development gems, reducing the deprecation warning spam.
+
+### 1.0.0 / 2016-05-15
 
 * Don't allow coder's dump method to fail. Instead, return nil.
 * Pass options through correctly, so coder can respect defaults.
