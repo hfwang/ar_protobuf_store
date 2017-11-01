@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_runtime_dependency "activerecord", ">= 3.0", "< 5.1"
+  gem.add_runtime_dependency "activerecord", ">= 3.0", "< 5.2"
 
   # Install this by default to make development easier
   gem.add_development_dependency "ruby-protocol-buffers", "~> 1.5"
