@@ -1,3 +1,7 @@
+### 1.0.2 / 2017-11-01
+
+* Declare support for Rails 5.1.
+
 ### 1.0.1 / 2016-05-15
 
 * Declare support for Rails 5.
