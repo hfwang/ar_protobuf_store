@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "codeclimate-test-reporter"
   gem.add_development_dependency "pry", "~> 0.9"
-  gem.add_development_dependency "sqlite3", "~> 1.3"
+  gem.add_development_dependency "sqlite3", "~> 1.4"
   gem.add_development_dependency "appraisal", "~> 1.0.0"
   gem.add_development_dependency "rspec", "~> 3.5.0"
   gem.add_development_dependency "rubygems-tasks", "~> 0.2"
