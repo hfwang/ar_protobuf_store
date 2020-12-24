@@ -1,24 +1,19 @@
 language: ruby
 rvm:
-  - 2.0
-  - 2.1
-  - 2.2
-  - 2.3
+  - 2.4
+  - 2.5
+  - 2.6
 gemfile:
-  - gemfiles/rails3.2_protobuf.gemfile
-  - gemfiles/rails3.2_ruby_protobuf.gemfile
-  - gemfiles/rails4.0.0_protobuf.gemfile
-  - gemfiles/rails4.0.0_ruby_protobuf.gemfile
-  - gemfiles/rails4.1.0_protobuf.gemfile
-  - gemfiles/rails4.1.0_ruby_protobuf.gemfile
-  - gemfiles/rails4.2.0_protobuf.gemfile
-  - gemfiles/rails4.2.0_ruby_protobuf.gemfile
-matrix:
-  include:
-  - rvm: 2.3
-    gemfile: gemfiles/rails5.0.1_protobuf.gemfile
-  - rvm: 2.3
-    gemfile: gemfiles/rails5.0.1_ruby_protobuf.gemfile
+  - gemfiles/rails5.0.1_protobuf.gemfile
+  - gemfiles/rails5.0.1_ruby_protobuf.gemfile
+  - gemfiles/rails5.1.3_protobuf.gemfile
+  - gemfiles/rails5.1.3_ruby_protobuf.gemfile
+  - gemfiles/rails5.2.4.4_protobuf.gemfile
+  - gemfiles/rails5.2.4.4_ruby_protobuf.gemfile
+  - gemfiles/rails6.0.3.4_protobuf.gemfile
+  - gemfiles/rails6.0.3.4_ruby_protobuf.gemfile
+  - gemfiles/rails6.1.0_protobuf.gemfile
+  - gemfiles/rails6.1.0_ruby_protobuf.gemfile
 after_success:
   - bundle exec codeclimate-test-reporter
 addons:
