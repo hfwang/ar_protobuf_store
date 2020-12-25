@@ -1,3 +1,10 @@
+### 1.1.0 / 2020-12-24
+
+* Formally support Rails up to 6.1.
+* Drops support for Rails 4.x and earlier.
+* Drops support for `ruby_protobuf` library.
+* Drops support for Ruby < 2.4.
+
 ### 1.0.2 / 2017-11-01
 
 * Declare support for Rails 5.1.
