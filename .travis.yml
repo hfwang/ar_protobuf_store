@@ -4,7 +4,6 @@ rvm:
   - 2.5.8
   - 2.6.6
 gemfile:
-  - gemfiles/rails5.0.1_protobuf.gemfile
   - gemfiles/rails5.1.3_protobuf.gemfile
   - gemfiles/rails5.2.4.4_protobuf.gemfile
   - gemfiles/rails6.0.3.4_protobuf.gemfile
