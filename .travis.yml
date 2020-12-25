@@ -17,14 +17,14 @@ gemfile:
 after_success:
   - bundle exec codeclimate-test-reporter
 exclude:
-  rvm: 2.4
-  gemfile: gemfiles/rails6.0.3.4_protobuf.gemfile
-  rvm: 2.4
-  gemfile: gemfiles/rails6.0.3.4_ruby_protobuf.gemfile
-  rvm: 2.4
-  gemfile: gemfiles/rails6.1.0_protobuf.gemfile
-  rvm: 2.4
-  gemfile: gemfiles/rails6.1.0_ruby_protobuf.gemfile
+  - rvm: 2.4
+    gemfile: gemfiles/rails6.0.3.4_protobuf.gemfile
+  - rvm: 2.4
+    gemfile: gemfiles/rails6.0.3.4_ruby_protobuf.gemfile
+  - rvm: 2.4
+    gemfile: gemfiles/rails6.1.0_protobuf.gemfile
+  - rvm: 2.4
+    gemfile: gemfiles/rails6.1.0_ruby_protobuf.gemfile
 addons:
   code_climate:
     repo_token: 6bdbd657ebc3097c1ca86672a45b6408a457a5d80cea234937f4d4adfbf004bd
