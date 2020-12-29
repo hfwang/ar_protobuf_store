@@ -25,11 +25,10 @@ having to deal with the migration pain of adding and removing columns to a
 regular SQL table. (As well as removing the possibility of indexing the internal
 values.)
 
-This gem is known to work with the three "major" Ruby Protocol Buffer libraries (here listed in descending order of speed):
+This gem is known to work with the these Ruby Protocol Buffer libraries (here listed in descending order of speed):
 
 * [protobuf](http://rubygems.org/gems/protobuf) ([localshred on Github](https://github.com/localshred/protobuf))
 * [ruby-protocol-buffers](http://rubygems.org/gems/ruby-protocol-buffers) ([Codekitchen on Github](https://github.com/codekitchen/ruby-protocol-buffers))
-* [ruby_protobuf](http://rubygems.org/gems/ruby_protobuf) ([macks on Github](https://github.com/macks/ruby-protobuf))
 
 ## Install
 
